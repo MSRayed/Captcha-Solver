@@ -40,18 +40,8 @@ def find_captcha_img():
 def detect_captcha():
     # Processing the image
     image = cv2.imread("captcha.jpg")
-    h, w = image.shape[:2]
-    cv2.imshow("img", image)
-    image = cv2.resize(image, (w*4, h*4))
-    cv2.imshow("image", image)
-    image = cv2.threshold(image, 0, 255, cv2.THRESH_TRUNC)[1]
-    cv2.imshow("image thresh", image)
 
-    text = image_to_string(image)
-    print(text)
-
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    text = image_to_string(image).strip()
 
     return text
 
